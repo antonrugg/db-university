@@ -22,5 +22,41 @@
 
 -----------QUERY CON JOIN--------  
 
-1)
+1) SELECT `students`.`name`, `surname`, `fiscal_code`, `degrees`.`name` FROM `students` INNER JOIN `degrees` ON `degrees`.`id` = `students`.`degree_id` WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+
+2) SELECT `degrees`.`name`, `degrees`.`level` FROM `degrees` INNER JOIN `departments` ON `departments`.`id` = `degrees`.`department_id` WHERE `degrees`.`level` = 'magistrale' AND `departments`.`name` = 'Dipartimento di Neuroscienze';
+
+3) SELECT `courses`.`name` FROM `courses`
+INNER JOIN `course_teacher`
+ON `courses`.`id`= `course_teacher`.`course_id`
+INNER JOIN `teachers`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+WHERE `teachers`.`id` = 44;
+
+4) SELECT `students`.`name`, `students`.`surname`, `degrees`.`name`, `departments`.`name`
+FROM `students`
+INNER JOIN `degrees`
+ON `degrees`.`id` = `students`.`degree_id`
+INNER JOIN `departments`
+ON `departments`.`id` = `degrees`.`id`
+ORDER BY `students`.`surname` ASC, `students`.`name` ASC;
+
+5) SELECT `degrees`.`name` AS 'Corso di Laurea', `courses`.`name` AS 'Materia del corso', `teachers`.`surname`, `teachers`.`name` FROM `degrees`
+INNER JOIN `courses`
+ON `courses`.`id` = `degrees`.`id`
+INNER JOIN `teachers`
+ON `teachers`.`id` = `courses`.`degree_id`;
+
+6) SELECT `teachers`.`name`, `teachers`.`surname` FROM `teachers`
+INNER JOIN `course_teacher`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+INNER JOIN `courses` 
+ON `course_teacher`.`course_id` = `courses`.`id`
+INNER JOIN `degrees`
+ON `courses`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`name` = 'Dipartimento di Matematica';
+
+7) 
 
