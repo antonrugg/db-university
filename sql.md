@@ -6,3 +6,21 @@
 6) SELECT * FROM `degrees` WHERE `level` = 'magistrale';  
 7) SELECT * FROM `departments`;  
 8) SELECT COUNT(id) FROM `teachers` WHERE `phone` IS NULL;  
+
+
+-----------------GROUP BY------------------  
+
+1) SELECT COUNT(*), YEAR(`enrolment_date`) FROM `students` GROUP BY YEAR(`enrolment_date`);
+
+2) SELECT COUNT(*), `office_address` FROM `teachers` GROUP BY `office_address`;
+
+3) SELECT AVG(vote), `exam_id` FROM `exam_student` GROUP BY `exam_id`;
+
+4) SELECT COUNT(`id`), `department_id` FROM `degrees` GROUP BY `department_id`;
+
+
+
+-----------QUERY CON JOIN--------  
+
+1)
+
